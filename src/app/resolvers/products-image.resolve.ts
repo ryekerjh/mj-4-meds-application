@@ -2,7 +2,7 @@
 import {Injectable} from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 //Services
-import { }
+import { ProductsService } from '../services/products.service';
 //3rd Party Imports
 import {Observable} from 'rxjs/Observable';
 
