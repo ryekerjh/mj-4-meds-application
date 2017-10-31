@@ -12,6 +12,7 @@ import { LoaderService } from './services/loader.service';
 })
 export class AppComponent implements OnInit{
   showLoader: boolean;
+  sidebar: boolean = false;
   
   constructor(
     public loaderService: LoaderService,
@@ -23,5 +24,13 @@ export class AppComponent implements OnInit{
       this.showLoader = val;
   });
   };  
+
+  showSidebar() {
+    this.sidebar = true;
+  };
+
+  hideSidebar() {
+    this.sidebar = false;
+  };
 
 };

@@ -1,5 +1,7 @@
 <div class="mj4meds-container">
   <navbar></navbar>
+  <!-- TODO: create ability to show when a user is logged in and needs access to orders -->
+  <sidebar (mouseover)="showSidebar()" (mouseleave)="hideSidebar()" *ngIf="sidebar"></sidebar>
   <main>
     <div>
       <router-outlet></router-outlet>
