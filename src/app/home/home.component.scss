@@ -1,0 +1,16 @@
+main {
+    background-image: url('../../assets/bg3.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    h1, h3 {
+        color: #fff;
+        margin-top: 0px;
+    }
+    .call-to-action {
+        margin-top: 10%;
+        h1 {
+            font-size: 4em;
+        }
+    }
+  }

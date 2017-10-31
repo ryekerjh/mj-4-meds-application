@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* Global Body styles */
+
+body {
+    min-height: 100vh;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+.mj4meds-container>main {
+    padding-top: 75px;
+}
