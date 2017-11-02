@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,6 +29,7 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
   imports: [
     BrowserModule,
     RouterModule,
+    HttpModule,
     routing,
     ProductsModule,
     ContactModule,

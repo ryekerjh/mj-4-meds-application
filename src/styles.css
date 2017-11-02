@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro:400,700');
 
 /* Global Body styles */
 
@@ -15,4 +15,32 @@ h1, h2, h3, h4, h5, h6 {
 
 .mj4meds-container>main {
     padding-top: 75px;
+}
+
+.link {
+    color: #8CC63E; /*base color*/
+} 
+
+.link:hover {
+    color: #3E581C; /*darker base color*/
+    cursor: pointer;
+}
+
+.title {
+    font-weight: bold;
+    color: #333;
+    margin: 0px;
+}
+
+/* Flex styles */
+.flex-horizontal-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Transitions */
+.hover-zoom:hover {
+    transform: scale(1.15);
+    cursor: pointer;
 }
