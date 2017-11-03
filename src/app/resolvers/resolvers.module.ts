@@ -2,14 +2,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Resolvers
-import { ProductsImageResolver } from './products-image.resolve';
+import { ProductsImageResolver } from './products.resolve';
+import { ProductsResolver } from './products.resolve';
+
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [],
   providers: [
-    ProductsImageResolver
+    ProductsImageResolver,
+    ProductsResolver
   ]
 })
 export class ResolversModule { }
