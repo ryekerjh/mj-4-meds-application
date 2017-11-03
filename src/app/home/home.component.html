@@ -5,9 +5,27 @@
         <h3>Feel Better. Naturally.</h3>
     </div>
   </div>
+</main>
+<section class="container">
   <div class="row">
-    <div class="col-sm-8 col-offset-2">
-      <img [src]="productImgSrc" alt="">
+    <div class="col-xs-12">
+      <div class="flex-horizontal-center">
+        <h3 class="pull-left title">Featured Products</h3>
+        <p class="pull-right link" routerLink="/products">View All Products</p>
+      </div>
     </div>
   </div>
-</main>
+  <div class="row featured-products-container">
+    <div class="col-sm-2" *ngFor="let product of products; let firstRow = first" [ngClass]="{'col-sm-offset-1' : !firstRow}">
+      <img src="{{product.imageUrl}}" alt="{{product.name}} Image">
+      <div class="product hover-zoom"  (mouseenter)="product.showOverlay = true" (mouseleave)="product.showOverlay = false">
+        <div class="overlay" [ngClass]="{'show': product.showOverlay, 'hide': !product.showOverlay}">
+          <div class="product-btns col-sm-3" (click)="cartService.addItem(product)"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+          <div class="product-btns like col-sm-3" (click)="addToFavorites(product)"><i class="fa fa-heart" aria-hidden="true"></i></div>
+          <div class="product-btns col-sm-6" (click)="goToProductDetails(product._id)">{{product.price |currency:'USD':true:'2.2-4'}}</div>
+        </div>
+      </div>
+      <p class="text-center featured-product-title">{{product.name}}</p>
+    </div>
+  </div>
+</section>

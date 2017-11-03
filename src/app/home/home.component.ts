@@ -1,3 +1,4 @@
+//Core Imports
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 //Models 
@@ -15,6 +16,7 @@ import * as _ from "lodash";
 export class HomeComponent implements OnInit {
   overview: boolean = false;
   products: Product[];
+  
   constructor(
     private activatedRoute: ActivatedRoute,
     public cartService: CartService
@@ -31,10 +33,7 @@ export class HomeComponent implements OnInit {
         this.products.push(product);
       }
     });
-  };
-
-  addToCart(product: Product) {
-    this.cartService.addItem(product);
+    console.log(this.products.length)
   };
 
   addToFavorites(product: Product) {

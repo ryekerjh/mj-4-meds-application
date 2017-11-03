@@ -2,7 +2,7 @@ main {
     background-image: url('../../assets/bg3.jpg');
     background-size: cover;
     background-position: center;
-    height: 60vh;
+    height: 45vh;
     h1, h3 {
         color: #fff;
         margin-top: 0px;
@@ -14,9 +14,6 @@ main {
         }
     }
   }
-  //ROLL UP $30
-  //Tub 30/40/50
-
 p {
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;    
@@ -25,13 +22,13 @@ p {
 .featured-products-container {
     margin-top: 16px;
     .product {
-        background-image: url("../../assets/mj4medsstick.jpg");
+        // background-image: url("../../assets/mj4medsstick.jpg");
         background-position: center;
         background-size: cover;
         height: 165px;
         width: 165px;
         &:hover {
-            background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("../../assets/mj4medsstick.jpg");
+            background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) );
             transition: all 0.2s ease-in-out;
             .like {
                 &:hover {
