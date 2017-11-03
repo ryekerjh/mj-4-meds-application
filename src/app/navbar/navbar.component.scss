@@ -19,6 +19,19 @@
                 background-color: #e7e7e7;                
                 transition: all 0.2s ease-in-out; /*Universal ease transition*/                
             }
+            &.cart-link {
+                    &:hover {
+                        background-color: transparent;
+                        a {
+                        &:hover {   
+                            color: #E5E510;
+                            span {
+                                color: #8CC63E;
+                            }
+                        }
+                    }
+                }
+            }
             a { 
                 display: flex;
                 align-items: center;
@@ -29,6 +42,12 @@
                     color: #9F925A;
                     transition: all 0.2s ease-in-out;                    
                 }
+            }
+            .cart-count {
+                position: absolute;
+                color: #E5E510;
+                left: 50%;
+                bottom: 42%;
             }
         }
     }

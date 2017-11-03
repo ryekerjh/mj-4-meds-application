@@ -14,3 +14,69 @@ main {
         }
     }
   }
+  //ROLL UP $30
+  //Tub 30/40/50
+
+p {
+    margin: 0px;
+    font-family: 'Source Sans Pro', sans-serif;    
+}
+
+.featured-products-container {
+    margin-top: 16px;
+    .product {
+        background-image: url("../../assets/mj4medsstick.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 165px;
+        width: 165px;
+        &:hover {
+            background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("../../assets/mj4medsstick.jpg");
+            transition: all 0.2s ease-in-out;
+            .like {
+                &:hover {
+                    .fa {
+                        color: #A516B7;
+                        transition: all 0.2s ease-in-out;                        
+                    }
+                }
+            }
+            + .featured-product-title {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+        }
+    }
+    .overlay {
+        display:none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+        height: 45px;
+        &.show {
+            transition: all 0.2s ease-in-out;
+            display: block;
+        }
+        .product-btns {
+            color: #fff;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            .fa {
+                font-size: 1.5em;
+            }
+            &:hover {
+                background-color: #8CC63E;
+                color: #333;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+    }
+    .featured-product-title {
+        margin-top: 16px;
+    }
+}
