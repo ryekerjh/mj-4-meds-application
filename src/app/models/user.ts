@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import { Product } from './product';
 
 export class User {
     constructor(data?: any){
@@ -14,5 +15,5 @@ export class User {
     public mailState: string = null;    
     public mailZip: string = null;    
     public photo: string = null;
-    public favorites: string = null;      
+    public favorites: Array<Product> = [];      
 };

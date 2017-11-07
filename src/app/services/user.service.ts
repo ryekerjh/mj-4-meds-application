@@ -8,4 +8,7 @@ export class UserService {
 
   constructor() { }
 
-}
+  setUser() {
+
+  };
+};

@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 //3rd Party Imports
 import {provideAuth, AuthHttp, JwtHelper} from 'angular2-jwt';
+import { ModalModule } from 'ngx-bootstrap';
 //Modules
+import { AuthModule } from './auth/auth.module';
 import { routing } from './app.routing';
 import { ProductsModule } from './products/products.module';
 import { ContactModule } from './contact/contact.module';
@@ -36,8 +38,9 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
     HomeModule,
     ResolversModule,
     ServicesModule,
-    SharedComponentsModule
-  ],
+    SharedComponentsModule,
+    AuthModule,
+    ModalModule.forRoot()  ],
   providers: [
   ],
   bootstrap: [AppComponent]
