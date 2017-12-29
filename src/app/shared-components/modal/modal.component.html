@@ -1,0 +1,17 @@
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Cart</h4>
+  </div>
+  <div class="modal-body" *ngIf="cart.length > 0; else cartEmptyTemplate">
+    <ul *ngFor="let c of cart">
+      <li>
+        <p class="pull-left">{{c.name}}</p>
+        <p class="pull-right">{{c.price | currency}}</p>
+      </li>
+    </ul>
+  </div>
+  <ng-template #cartEmptyTemplate>
+    <h4 class="text-center">There is nothing in your cart.</h4>
+  </ng-template>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>
+  </div>

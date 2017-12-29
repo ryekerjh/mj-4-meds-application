@@ -3,7 +3,8 @@
   <ul class="nav nav-pills pull-right">
     <li role="presentation"><a routerLink="products">Products</a></li>
     <li role="presentation"><a routerLink="contact">Contact</a></li>
-    <li role="presentation"><a routerLink="login">Login</a></li>    
-    <li role="presentation" class="cart-link" ><a routerLink="cart"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i><span class="cart-count">{{cartService.cartCount}}</span></a></li>
+    <li role="presentation" *ngIf="!userService.loggedIn"><a routerLink="login">Login</a></li>    
+    <li role="presentation" *ngIf="userService.loggedIn" (click)="userService.logout()">Logout</li>    
+    <li role="presentation" class="cart-link" (click)="summonModal()"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i><span class="cart-count">{{cartService.cartCount}}</span></li>
   </ul>
 </div>

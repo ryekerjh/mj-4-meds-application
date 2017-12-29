@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderService } from './loader.service';
 import { ProductsService } from './products.service';
 import { CartService } from './cart.service';
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { CartService } from './cart.service';
   providers: [
     LoaderService,
     ProductsService,
-    CartService
+    CartService,
+    UserService
   ]
 })
 export class ServicesModule { }
