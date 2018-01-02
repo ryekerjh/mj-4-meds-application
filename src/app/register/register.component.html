@@ -1,0 +1,10 @@
+<div class="col-sm-6 col-sm-offset-3">
+    <h2 class="text-center">You're almost there!</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" id="register_form" >
+      <div class="form-group">
+        <input type="text" id="password" class="form-control" placeholder="password" formControlName="password">
+      </div>
+      <div class="form-group">
+        <input type="text" id="password2" class="form-control" placeholder="repeat password" formControlName="password2">
+      </div>
+    </form> 

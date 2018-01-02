@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -19,8 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { ResolversModule } from './resolvers/resolvers.module';
 import { ServicesModule } from './services/services.module';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
-
-
+import { RegisterModule } from './register/register.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,11 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
     ServicesModule,
     SharedComponentsModule,
     AuthModule,
-    ModalModule.forRoot()  ],
+    FormsModule,
+    ReactiveFormsModule,
+    RegisterModule,
+    ModalModule.forRoot()
+  ],
   providers: [
   ],
   bootstrap: [AppComponent]

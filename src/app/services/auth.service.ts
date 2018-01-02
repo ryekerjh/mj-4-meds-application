@@ -27,7 +27,7 @@ export class AuthService {
             if(res['token']) {
                 this.loggedIn = true;
                 this.storeToken(res['token']);
-                this.userService.setUser();
+                this.userService.setUser(res['user']);
                 return this.loginError = false;
             } else {
                 return {err: true, toastMessage: res['message']}
