@@ -8,3 +8,22 @@ $light-grey: #e7e7e7;
     color: #333;
     padding: 8px 46px;
 }
+
+.warn-text {
+    color: #e40007;
+}
+
+@keyframes zoom-in {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: .5;
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

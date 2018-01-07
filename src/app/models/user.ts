@@ -17,4 +17,5 @@ export class User {
     public state: string = null;
     public zip: string = null;
     public role: string = null;
+    public agree: boolean = false;
 };

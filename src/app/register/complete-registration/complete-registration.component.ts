@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //Services
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 //3rd PARTY
 import 'rxjs/add/operator/filter';
 
@@ -21,7 +22,8 @@ export class CompleteRegistrationComponent implements OnInit {
   };
   completeMode: Boolean = false;
   completeRegistrationForm: FormGroup;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, public userService: UserService) {
+  verified: Boolean = false;
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, public userService: UserService, public auth: AuthService) {
     this.completeRegistrationForm = fb.group({
       'firstName' : [null, Validators.required],
       'lastName' : [null, Validators.required],
@@ -40,16 +42,36 @@ export class CompleteRegistrationComponent implements OnInit {
     this.token = this.route.params.subscribe(params => {
       params != null ? this.completeMode == true : this.completeMode == false;
       this.userService.getUserRegistrationDetails(params.token)
-      .then(user => {
-        console.log(user, 'looook');
+      .then(res => {
+        this.auth.storeTempToken(res['token'])
         this.completeRegistrationForm.patchValue({
-          email: user['email']
+          email: res['user']['email'],
+          firstName: res['user']['firstName'],
+          lastName: res['user']['lastName']
         })
       })
     });
   }
 
   completeReg(fields) {
-    
+    delete fields.password2;
+    this.userService.completeRegistration(fields)
+    .then(res => {
+      let creds = {email: fields.email, password: fields.password};
+      this.auth.login(creds)
+      .subscribe(returned => {
+        const verified = this.auth.isLoggedIn();
+        if(verified){
+          this.verified = true;
+          this.router.navigate(['/products']);
+        } else {
+          // this.toastService.toast({message: 'Something went wrong with your login. You are not authorized to access this page.'})
+          this.router.navigate(['/login']);
+        }
+      })
+    })
+    .catch(e => {
+      console.log(e, 'error');
+    });
   }
 }

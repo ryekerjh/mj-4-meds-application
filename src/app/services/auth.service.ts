@@ -9,12 +9,13 @@ import {toPromise} from "rxjs/operator/toPromise";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import {AuthHttp, JwtHelper} from 'angular2-jwt';
-
+import config from '../../../config';
 
 @Injectable()
 export class AuthService {
     loggedIn: boolean = false;
     loginError: boolean = false;
+    private apiUrl = `${config.config.API_URL}user`;  
     constructor(private router: Router,
                 public userService: UserService,
                 public authHttp: AuthHttp) {}
@@ -22,7 +23,7 @@ export class AuthService {
 
     // login method sends user creds to api. If token returned then token and user saved to localStorage
     login(creds): Observable<any> {
-        return this.authHttp.post('users/login', creds)
+        return this.authHttp.post(`${this.apiUrl}/login`, creds)
           .do((res) => {
             if(res['token']) {
                 this.loggedIn = true;
@@ -52,6 +53,10 @@ export class AuthService {
     }
 
     private storeToken(token: string) {
+        localStorage.setItem('token', token);
+    }
+
+    storeTempToken(token: string) {
         localStorage.setItem('token', token);
     }
 

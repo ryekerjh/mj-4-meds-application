@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { Product } from '../models/product';
 //Local Vars
 import config from '../../../config';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable()
 export class UserService {
@@ -13,7 +14,7 @@ export class UserService {
   public user:User;
   public loggedIn: Boolean = false;
 
-  constructor(public http: Http) { }
+  constructor(public http: Http, public authHttp: AuthHttp) { }
   
   getAllCartItems(userId) {
     return this.http.get(`${this.apiUrl}`)
@@ -34,32 +35,26 @@ export class UserService {
     })
   };
 
-  completeRegistration(details: any) {
-    return this.http.post(`${this.apiUrl}/complete-registration`, details)
+  beginRegistration(user:any) {
+    return this.http.post(`${this.apiUrl}`, user)
     .toPromise()
-    .then(res => {
-      console.log(res);
-      //TODO: store returned token and log in user
+    .then(data => {
+      return data.json();
     })
-
-  }
-
-  login(creds: any) {
-    return this.http.post(`${this.apiUrl}/login`, creds)
-    .toPromise()
-    .then(res => {
-      return res.json();
-    })
-    //TODO: write backend for user login, write storage peice for after login, mount user in userservice.user
-  
     .catch(e => {
       console.log(e);
     });
   }
-  
-  logout() {
-    return null;
-  };
+
+  completeRegistration(details: any) {
+    return this.authHttp.post(`${this.apiUrl}/complete-registration`, details)
+    .toPromise()
+    .then(res => {
+      return res.json();
+      //TODO: store returned token and log in user
+    })
+
+  }
 
   setUser(user:User) {
     return
