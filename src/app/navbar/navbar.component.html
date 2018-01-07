@@ -3,6 +3,7 @@
   <ul class="nav nav-pills pull-right">
     <li role="presentation"><a routerLink="products">Products</a></li>
     <li role="presentation"><a routerLink="contact">Contact</a></li>
-    <li role="presentation"><a routerLink="login">Login</a></li>
+    <li role="presentation" *ngIf="authService.isLoggedIn()"><a routerLink="login">Logout</a></li>
+    <li role="presentation" *ngIf="!authService.isLoggedIn()"><a routerLink="login">Login</a></li>    
   </ul>
 </div>

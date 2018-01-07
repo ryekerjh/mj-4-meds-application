@@ -1,0 +1,19 @@
+@import '../../globals.scss';
+
+.complete-registration {
+    margin-top: 2%;
+    .btn-register {
+        background-color: #333;
+        color: #fff;
+    }
+}
+
+.register-bg {
+    background-image: url('../../../assets/register-bg.jpg');
+    height: calc(100vh - 77px);
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(90%);
+    border-top: 2px solid #eee;
+    position: relative;
+}

@@ -1,0 +1,24 @@
+@import '../globals.scss';
+.register { 
+    margin-top: 2%;
+    .btn-pill {
+        border-radius: 25px;
+        padding: 8px 40px;
+        min-width: 50px;
+        background-color: #9D915D;
+        color: #fff;
+    }
+}
+
+.response {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    color: $base-color;
+    animation: zoom-in 1.5s ease-in-out;
+    height: calc(100vh - 77px);
+    &.error {
+        background-color: #e40007;
+    }
+}

@@ -1,0 +1,33 @@
+<div class="col-sm-6 col-sm-offset-3 register" *ngIf="!submitted">
+  <h2 class="text-center">Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" id="register_form" >
+    <div class="form-group col-sm-12">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" placeholder="you@mj4meds.com" formControlName="email">
+      <div class="warn-text" *ngIf="registerForm.controls.email.errors && registerForm.controls.email.touched">A valid email address is required.</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="firstName">First Name</label>
+      <input type="firstName" id="firstName" class="form-control" placeholder="Ryan" formControlName="firstName">
+      <div class="warn-text" *ngIf="registerForm.controls.firstName.errors  && registerForm.controls.firstName.touched">Please provide us with your first name.</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="lastName">Last Name</label>
+      <input type="lastName" id="lastName" class="form-control" placeholder="Johnson" formControlName="lastName">
+      <div class="warn-text" *ngIf="registerForm.controls.lastName.errors  && registerForm.controls.lastName.touched">Please provide us with your last name.</div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-offset-3">
+        <label for="agree">I agree to <a href="">terms and services agreements</a></label>
+        <input type="checkbox" formControlName="agree" id="agree">
+        <div class="warn-text" *ngIf="registerForm.controls.agree.errors && registerForm.controls.agree.touched">You must agree to our terms of service to register.</div>
+        <button class="btn btn-pill pull-right" [disabled]="!registerForm.valid">Sign Up!</button>
+      </div>
+    </div>
+  </form> 
+</div>
+<div class="response text-center" *ngIf="submitted" [ngClass]="{'error': response.error}">
+  <p>{{response.message}}</p>
+  <button class="btn btn-default" *ngIf="response.error">Back to Login</button>
+</div>
+
